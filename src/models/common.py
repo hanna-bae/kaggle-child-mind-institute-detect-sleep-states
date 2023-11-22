@@ -180,7 +180,10 @@ def get_model(
             feature_extractor=feature_extractor,
             decoder=decoder,
             in_channels=feature_extractor.out_chans,
-
+            mixup_alpha=cfg.aug.mixup_alpha,
+            cutmix_alpha=cfg.aug.cutmix_alpha,
+            **cfg.model.params,
+        )
     elif cfg.model.name == "TransformerAutoModel":
         model = TransformerAutoModel(
             n_channels=feature_dim,
